@@ -47,7 +47,11 @@ function chi_delete_plugin_data(){
 
         // delete post meta
         foreach ( $post_item['post'] as $post ) {
-            delete_post_meta($post->ID, 'myplugin_post_meta');
+            delete_post_meta($post->ID, 'question_id');
+        }
+
+        foreach ( $post_item['post'] as $post ) {
+            delete_post_meta($post->ID, 'doctor_id');
         }
 
         foreach ( $post_item['post'] as $post ) {

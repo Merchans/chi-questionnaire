@@ -39,7 +39,7 @@ function chi_answer_save_metabox( $post_id, $post, $update){
     if (isset($_POST["doctor_id"]))
     {
         $answer_doctor_id = $_POST["doctor_id"];
-        $answer_doctor_id = empty($answer_doctor_id) ? [] : $answer_doctor_id;
+        $answer_doctor_id = empty($answer_doctor_id) && absint($answer_doctor_id) ? [] : $answer_doctor_id;
 
         update_post_meta($post_id, 'doctor_id', $answer_doctor_id );
     }
@@ -47,7 +47,7 @@ function chi_answer_save_metabox( $post_id, $post, $update){
     if (!isset($_POST["doctor_id"]))
     {
         $answer_doctor_id = get_post_meta( $post_id, 'doctor_id', true);
-        $answer_doctor_id = empty($answer_doctor_id) ? [] : $answer_doctor_id;
+        $answer_doctor_id = empty($answer_doctor_id) && absint($answer_doctor_id) ? [] : $answer_doctor_id;
 
         update_post_meta($post_id, 'doctor_id', $answer_doctor_id );
     }
@@ -59,9 +59,7 @@ function chi_answer_save_metabox( $post_id, $post, $update){
 function question_id_meta_box($post){
     $question_id = get_post_meta($post->ID, 'question_id', true); //true ensures you get just one value instead of an array
     $doctor_id = get_post_meta($post->ID, 'doctor_id', true); //true ensures you get just one value instead of an array
-    echo '<pre>';
-    print_r( $question_id );
-    echo '</pre>';
+
     $questions = [
         'post' => get_posts(
             [
@@ -94,14 +92,14 @@ function question_id_meta_box($post){
     <div class="box-question">
         <label  for="question_id" ><?php _e( 'Choose a Question:', 'chi_questionnaire' ) ?></label>
 
-        <select name="question_id" id="question_id">
+        <select name="question_id" id="question_id" placeholder="Pick a question...">
             <?php
             foreach ( $questions['post'] as $question ) {
 
                 $id = $question->ID;
                 $name = "[".$id."]" . " − " . $question->post_title;
                 ?>
-                <option value="<?php echo $id?>" <?php selected( $doctor_id, $id ); ?>>
+                <option value="<?php echo $id?>" <?php selected( $question_id, $id ); ?>>
                     <?php echo $name ?>
                 </option>
                 <?php
@@ -116,14 +114,14 @@ function question_id_meta_box($post){
     <div class="box-doctor">
         <label for="doctor_id"><?php _e( 'Choose a Doctor:', 'chi_questionnaire' ) ?></label>
 
-        <select name="doctor_id" id="doctor_id">
+        <select name="doctor_id" id="doctor_id"  placeholder="Pick a doctor...">
             <?php
             foreach ( $doctors['post'] as $doctor ) {
 
                 $id = $doctor->ID;
                 $name = "[".$id."]" . " − " . $doctor->post_title;
                 ?>
-                <option value="<?php echo $id?>" <?php selected( $question_id, $id ); ?>>
+                <option value="<?php echo $id?>" <?php selected( $doctor_id, $id ); ?>>
                     <?php echo $name ?>
                 </option>
                 <?php
