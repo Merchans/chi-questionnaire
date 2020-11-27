@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="a5deeef0-cece-4be7-9e2c-ee3f822c4c5b" name="kongresonline plugins" url="http://ftp.wp-hosting.cz">
-        <fileTransfer host="ftp.wp-hosting.cz" port="21" rootFolder="/kongres-online.cz/www/wp-content/plugins">
+        <fileTransfer host="ftp.wp-hosting.cz" port="21" rootFolder="/kongres-online.cz/dev/wp-content/plugins">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
