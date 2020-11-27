@@ -13,9 +13,12 @@ if	( ! defined('ABSPATH') ) {
 }
 
 // Setup
+define('RM_DEV_MODE', true);
+define('PLUGIN_HOME', plugin_dir_url(__FILE__) );
 
 // Includes
 include('inc/activate.php');
+include('inc/enqueue.php');
 include('inc/add-menu-page.php');
 include('inc/cpt-init.php');
 include('process/save-post.php');
@@ -25,7 +28,7 @@ include('process/save-post-meta.php');
 register_activation_hook(__FILE__, 'chi_activate_plugin' );
 add_action( 'admin_menu', 'chi_admin_menu' );
 add_action('init','cpt_init');
-//add_action('save_post_chi_answer','chi_save_chi_answer_admin', 3, 10);
+add_action( 'admin_enqueue_scripts', 'chi_enqueue_admin', 100, 1 );
 add_action('save_post_chi_answer', 'chi_answer_save_metabox', 3, 10 );
 add_action( 'add_meta_boxes', 'chi_answer_meta_box_for_question' );
 
