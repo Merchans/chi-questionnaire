@@ -15,7 +15,7 @@ function chi_delete_plugin_data(){
             'post' => get_posts(
                 array(
                     'numberposts' => -1,
-                    'post_type' => 'chi_answers',
+                    'post_type' => 'chi_answer',
                     'post_status' => 'any',
                 )
             )
@@ -24,7 +24,7 @@ function chi_delete_plugin_data(){
             'post' => get_posts(
                 array(
                     'numberposts' => -1,
-                    'post_type' => 'chi_doctors',
+                    'post_type' => 'chi_doctor',
                     'post_status' => 'any',
                 )
             )
@@ -33,7 +33,7 @@ function chi_delete_plugin_data(){
             'post' => get_posts(
                 array(
                     'numberposts' => -1,
-                    'post_type' => 'chi_questions',
+                    'post_type' => 'chi_question',
                     'post_status' => 'any',
                 )
             )
