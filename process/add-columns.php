@@ -17,16 +17,21 @@ function chi_add_post_questions_columns_data( $column, $post_id )
     if ($column == "ID")
     {
   		?>
-		<span class="questionId"><?php echo $post_id; ?></span>
-		<button class="copyIdButton"><?php _e('Copy ID', 'chi_questionnaire'); ?></button>
+			<a class="row-title" href="<?php echo get_edit_post_link($post_id); ?>">
+				<span class="questionId"><?php echo $post_id; ?></span>
+			</a>
+		<button class="copyIdButton button action"><?php _e('Copy ID', 'chi_questionnaire'); ?></button>
+		<div>
+
+		</div>
 		<?php
     }
 
 }
 
-function hnilicka_add_sortable_post_komentar_column( $columns )
+function chi_add_sortable_post_question_column( $columns )
 {
-    $columns["komentar"] =  "komentar";
+    $columns["ID"] =  "ID";
 
     return $columns;
 }

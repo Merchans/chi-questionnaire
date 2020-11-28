@@ -8,8 +8,10 @@ function chi_enqueue_admin()
 
     //CSS
     wp_register_style( "chi_selectize_css", PLUGIN_HOME. '/css/selectize.bootstrap3.min.css', [], $version);
+    wp_register_style( "chi_questionnaire_css", PLUGIN_HOME. '/css/chi-questionnaire.css', [], $version);
 
     wp_enqueue_style( "chi_selectize_css" );
+    wp_enqueue_style( "chi_questionnaire_css" );
 
     //JS
     wp_register_script( "chi_selectize_js", PLUGIN_HOME. "/js/selectize.min.js", array('jquery'), $version, true  );

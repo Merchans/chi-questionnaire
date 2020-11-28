@@ -1,0 +1,14 @@
+span.questionId {
+	line-height: 2.4;
+}
+
+.column-ID
+{
+	width: 10%;
+	text-align: center;
+}
+
+th.manage-column.column-ID,
+th#ID {
+	text-align: center;
+}

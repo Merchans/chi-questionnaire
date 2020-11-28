@@ -36,6 +36,7 @@ add_action('manage_chi_question_posts_custom_column', 'chi_add_post_questions_co
 
 // Filters
 add_filter('manage_chi_question_posts_columns', 'chi_add_post_questions_columns');
+add_filter('manage_edit-chi_question_sortable_columns', 'chi_add_sortable_post_question_column');
 
 
 // Shortcodes
