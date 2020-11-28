@@ -2,8 +2,8 @@
 
 function chi_admin_menu() {
     add_menu_page(
-        __('Questionnaire', 'chi_questionnaire'),
-        __('Questionnaire', 'chi_questionnaire'),
+        __('Questionnaire', 'chi-questionnaire'),
+        __('Questionnaire', 'chi-questionnaire'),
         'read',
         'questionnaire-manager',
         '', // Callback, leave empty

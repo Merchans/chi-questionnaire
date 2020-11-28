@@ -2,10 +2,11 @@
 /*
 Plugin Name: CHI Questionnaire
 Plugin URI: https://kongres-online.cz/
-Description: A brief description of the Plugin.
+Description: Questionnaire for doctors.
 Version: 0.1
 Author: Richard Markovič
-Domain> chi_questionnaire
+Text Domain: chi-questionnaire
+Domain Path: /languages/
 */
 
 if	( ! defined('ABSPATH') ) {
@@ -15,6 +16,7 @@ if	( ! defined('ABSPATH') ) {
 // Setup
 define('RM_DEV_MODE', true);
 define('PLUGIN_HOME', plugin_dir_url(__FILE__) );
+define('PLUGIN_HOME_URI', dirname( plugin_basename( __FILE__ ) ) );
 
 // Includes
 include('inc/activate.php');
@@ -27,6 +29,7 @@ include('process/add-columns.php');
 
 // Hooks
 register_activation_hook(__FILE__, 'chi_activate_plugin' );
+add_action( 'plugins_loaded', 'shitty_views_load_textdomain' );
 add_action( 'admin_menu', 'chi_admin_menu' );
 add_action('init','cpt_init');
 add_action( 'admin_enqueue_scripts', 'chi_enqueue_admin', 100, 1 );

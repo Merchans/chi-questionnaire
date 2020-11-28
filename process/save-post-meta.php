@@ -5,7 +5,7 @@ function chi_answer_meta_box_for_question($post_type){
 	{
         add_meta_box(
             'so_meta_box',
-            __( 'Choose a&nbsp;Question and a&nbsp;Doctor:', 'chi_questionnaire' ),
+            __( 'Choose a&nbsp;Question and a&nbsp;Doctor:', 'chi-questionnaire' ),
             'question_id_meta_box',
             $post_type,
             'side' ,
@@ -90,7 +90,7 @@ function question_id_meta_box($post){
     </style>
     <?php if ( !empty($questions['post']) ):  ?>
     <div class="box-question">
-        <label  for="question_id" ><?php _e( 'Choose a Question:', 'chi_questionnaire' ) ?></label>
+        <label  for="question_id" ><?php _e( 'Choose a Question:', 'chi-questionnaire' ) ?></label>
 
         <select name="question_id" id="question_id" placeholder="Pick a question...">
             <?php
@@ -112,7 +112,7 @@ function question_id_meta_box($post){
     <?php endif ?>
     <?php if ( !empty($doctors['post']) ):  ?>
     <div class="box-doctor">
-        <label for="doctor_id"><?php _e( 'Choose a Doctor:', 'chi_questionnaire' ) ?></label>
+        <label for="doctor_id"><?php _e( 'Choose a Doctor:', 'chi-questionnaire' ) ?></label>
 
         <select name="doctor_id" id="doctor_id"  placeholder="Pick a doctor...">
             <?php
