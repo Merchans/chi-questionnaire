@@ -26,7 +26,7 @@ include('inc/cpt-init.php');
 include('process/save-post.php');
 include('process/save-post-meta.php');
 include('process/add-columns.php');
-include('process/add-shortcodes.php');
+include('process/add-shortcodes-tmp-1.php');
 
 // Hooks
 register_activation_hook(__FILE__, 'chi_activate_plugin' );
@@ -34,6 +34,7 @@ add_action( 'plugins_loaded', 'shitty_views_load_textdomain' );
 add_action( 'admin_menu', 'chi_admin_menu' );
 add_action('init','cpt_init');
 add_action( 'admin_enqueue_scripts', 'chi_enqueue_admin', 100, 1 );
+add_action( 'wp_enqueue_scripts', 'chi_enqueue_front_end');
 add_action('save_post_chi_answer', 'chi_answer_save_metabox', 3, 10 );
 add_action( 'add_meta_boxes', 'chi_answer_meta_box_for_question' );
 add_action('manage_chi_question_posts_custom_column', 'chi_add_post_questions_columns_data', 10, 2);

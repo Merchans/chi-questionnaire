@@ -30,7 +30,7 @@ function chi_add_question( $atts )
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         </div>
         <?php
-    return;
+        return;
     }
 
     if ( !is_question( $atts['id'] ) )
@@ -74,14 +74,61 @@ function chi_add_question( $atts )
         ),
     );
     $query = new WP_Query( $args );
-    foreach ( $query as $answer)
-    {
-        echo '<pre>';
-        print_r( $answer->post_title );
-        echo '</pre>';
-    }
 
-    die();
-    return "foo and bar";
+    foreach ( $query->posts as $answer)
+    {
+        $answers_conten[] = [
+            "ID" 			=>	get_post($answer->ID)->ID,
+            "text" 			=>	get_post($answer->ID)->post_content,
+            "question_id"	=>	get_post_meta($answer->ID, 'question_id', true),
+            "doctor_id"		=>	get_post_meta($answer->ID, 'doctor_id', true)
+        ];
+    }
+    wp_reset_postdata();
+    ?>
+    <section id="home" class="contents">
+        <div class="container">
+            <h3 class="page-title text-center"><?php echo get_post($atts['id'])->post_content?></h3>
+
+            <ul class="timeline panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <li class="timeline-line"></li>
+                <?php
+                foreach ($answers_conten as $answer_conten)
+                {
+
+                    ?>
+                    <li class="timeline-item">
+                        <div class="timeline-badge"><a href="#"></a></div>
+                        <div class="timeline-panel">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                            <div class="timeline-heading"><?php echo get_post($answer_conten["doctor_id"])->post_title?></div> <span class="expand-icon-wrap" aria-expanded="false" aria-controls="collapseTwo"></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel">
+                                    <div class="panel-body">
+                                        <div class="timeline-content">
+                                            <div>
+                                                <strong><?php echo get_post($answer_conten["doctor_id"])->post_content?></strong>
+                                            </div>
+                                            <?php echo $answer_conten["text"] ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                }
+                ?>
+            </ul>
+        </div>
+    </section>
+    <!-- </div>  end container -->
+    <?php
+
 }
 
