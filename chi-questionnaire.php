@@ -26,6 +26,7 @@ include('inc/cpt-init.php');
 include('process/save-post.php');
 include('process/save-post-meta.php');
 include('process/add-columns.php');
+include('process/add-shortcodes.php');
 
 // Hooks
 register_activation_hook(__FILE__, 'chi_activate_plugin' );
@@ -43,3 +44,4 @@ add_filter('manage_edit-chi_question_sortable_columns', 'chi_add_sortable_post_q
 
 
 // Shortcodes
+add_shortcode('question','chi_add_question');

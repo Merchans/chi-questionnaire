@@ -824,7 +824,8 @@ function tinymce_add_chars( $settings ) {
 }
 
 
-if (is_single( )) {
+if (is_single( ))
+{
     $args = array(
     'post_type'  => 'chi_answer',
     'meta_key'   => 'question_id',

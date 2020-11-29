@@ -36,8 +36,8 @@
 
         $args = array(
             'labels'             => $labels,
-            'public'             => true,
-            'publicly_queryable' => true,
+            'public'             => false,
+            'publicly_queryable' => false,
             'show_ui'            => true,
             'show_in_menu'       => 'questionnaire-manager',
             'query_var'          => true,
@@ -81,8 +81,8 @@
 
         $args = array(
             'labels'             => $labels,
-            'public'             => true,
-            'publicly_queryable' => true,
+            'public'             => false,
+            'publicly_queryable' => false,
             'show_ui'            => true,
             'show_in_menu'       => 'questionnaire-manager',
             'query_var'          => true,
@@ -125,8 +125,8 @@
 
         $args = array(
             'labels'             => $labels,
-            'public'             => true,
-            'publicly_queryable' => true,
+            'public'             => false,
+            'publicly_queryable' => false,
             'show_ui'            => true,
             'show_in_menu'       => 'questionnaire-manager',
             'query_var'          => true,
