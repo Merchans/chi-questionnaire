@@ -28,10 +28,10 @@ function chi_enqueue_front_end()
     $version = RM_DEV_MODE ? time() : false;
 
     wp_register_style( "chi-questionnaire_front-end_css", PLUGIN_HOME. '/css/chi-questionnaire-front-end.css', [], $version);
-    wp_register_style( "chi-questionnaire", PLUGIN_HOME. '/css/chi-questionnaire.css', [], $version);
+    wp_register_style( "chi-acordeon-efect", PLUGIN_HOME. '/css/chi-acordeon-efect', [], $version);
 
     wp_enqueue_style( "chi-questionnaire_front-end_css" );
-    wp_enqueue_style( "chi-questionnaire" );
+    wp_enqueue_style( "chi-acordeon-efect" );
 
     wp_register_script( "chi-acordeon-efect", PLUGIN_HOME. "/js/chi-acordeon-efect.js", array('jquery'), $version, true  );
 

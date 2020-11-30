@@ -88,9 +88,11 @@ function chi_add_question( $atts )
     ?>
     <section id="home" class="contents">
         <div class="container">
-            <h3 class="page-title text-center"><?php echo get_post($atts['id'])->post_content?></h3>
-
-            <ul class="timeline panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <?php echo get_post($atts['id'])->post_content?>
+            <a href="#" class="chi-more-videos-btn btnImgClick d-block">
+                <span class="chi-more-videos-btn__text"><?php _e('All answers','chi-questionnaire') ?> </span>
+            </a>
+            <ul class="timeline panel-group"  role="tablist" aria-multiselectable="true">
                 <li class="timeline-line"></li>
                 <?php
                 foreach ($answers_conten as $answer_conten)
@@ -98,13 +100,18 @@ function chi_add_question( $atts )
 
                     ?>
                     <li class="timeline-item">
-                        <div class="timeline-badge"><a href="#"></a></div>
+                        <div class="timeline-badge">
+							<a href="#collapseTwo" class="#">
+                                <?php echo get_the_post_thumbnail($answer_conten["doctor_id"], 'thumbnail'); ?>
+							</a>
+						</div>
                         <div class="timeline-panel">
                             <div class="panel">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                            <div class="timeline-heading"><?php echo get_post($answer_conten["doctor_id"])->post_title?></div> <span class="expand-icon-wrap" aria-expanded="false" aria-controls="collapseTwo"></span>
+                                            <div class="timeline-heading"><?php echo get_post($answer_conten["doctor_id"])->post_title?></div>
+                                            <span class="expand-icon-wrap" aria-expanded="false" aria-controls="collapseTwo"></span>
                                         </a>
                                     </h4>
                                 </div>

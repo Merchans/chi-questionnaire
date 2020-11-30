@@ -28,6 +28,7 @@
 .timeline, .timeline>li {
 	list-style: none;
 }
+
 .timeline>li:nth-child(even) {
 	float: left;
 	clear: left;
@@ -42,6 +43,7 @@
 	top: 0;
 	bottom: 0;
 	left: 50%;
+	height: 90%;
 	width: 4px;
 	background-color: #eee;
 	-webkit-transform: translate(-50%, 0);
@@ -151,19 +153,19 @@
 	top: 12px;
 	z-index: 1;
 }
-.timeline-item>.timeline-badge>a {
+.timeline-item>.timeline-badge>a>img {
 	display: inline-block;
-	width: 12px;
-	height: 12px;
+	width: 50px;
+	height: 50px;
 	border: 2px solid #999;
 	border-radius: 24px;
 	background-color: #fff;
 	text-decoration: none;
 	transition: all ease .3s;
 }
-.timeline-item>.timeline-badge>a.active, .timeline-item>.timeline-badge>a:active, .timeline-item>.timeline-badge>a:focus, .timeline-item>.timeline-badge>a:hover {
-	-webkit-transform: scale(1.5);
-	transform: scale(1.5);
+.timeline-item>.timeline-badge>a>img.active, .timeline-item>.timeline-badge>a>img:active, .timeline-item>.timeline-badge>a>img:focus, .timeline-item>.timeline-badge>a>img:hover {
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
 }
 .timeline-item>.timeline-panel {
 	position: relative;
@@ -251,7 +253,7 @@
 .timeline .media:last-child {
 	border-bottom: 0;
 }
-@media (max-width:991px) {
+@media (max-width:1920px) {
 	.timeline {
 		padding-left: 15px;
 	}
@@ -288,8 +290,8 @@
 		border-right: 11px solid #fff;
 	}
 	.timeline-item.block:nth-child(even)>.timeline-badge, .timeline-item.block:nth-child(odd)>.timeline-badge, .timeline-item:nth-child(even)>.timeline-badge, .timeline-item:nth-child(odd)>.timeline-badge {
-		top: 12px;
-		left: -6px;
+		top: 0px;
+		left: -25px;
 		right: auto;
 		-webkit-transform: translate(0, 0);
 		transform: translate(0, 0);

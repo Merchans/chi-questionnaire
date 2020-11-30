@@ -26,7 +26,7 @@ include('inc/cpt-init.php');
 include('process/save-post.php');
 include('process/save-post-meta.php');
 include('process/add-columns.php');
-include('process/add-shortcodes-tmp-1.php');
+include('process/add-shortcodes.php');
 
 // Hooks
 register_activation_hook(__FILE__, 'chi_activate_plugin' );

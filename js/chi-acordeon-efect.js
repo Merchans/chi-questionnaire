@@ -1,21 +1,27 @@
-jQuery(function () {
-	// Smooth Scroll
-	jQuery('.navbar a[href*=#]').bind('click', function(e){
-		var anchor = jQuery(this);
-		jQuery('html, body').stop().animate({
-			scrollTop: jQuery(anchor.attr('href')).offset().top
-		}, 1000);
-		e.preventDefault();
-	});
-});
-
 jQuery(document).ready(function() {
 	// code from: https://www.sitepoint.com/community/t/collapsible-bootstrap-panels-not-collapsing-after-another-panel-is-selected/225826/2
 	jQuery(".panel-heading").click(function() {
-		jQuery('#accordion .panel-heading').not(this).removeClass('isOpen');
+		jQuery('.panel-heading').not(this).removeClass('isOpen');
 		jQuery(this).toggleClass('isOpen');
 		jQuery(this).next(".panel-collapse").addClass('thePanel');
-		jQuery('#accordion .panel-collapse').not('.thePanel').slideUp(300);
+		jQuery('.panel-collapse').not('.thePanel').slideUp(300);
 		jQuery(".thePanel").slideToggle(800).removeClass('thePanel');
+	});
+	var $i = 0;
+	jQuery(".btnImgClick").click(function(e) {
+		e.preventDefault();
+		$i++;
+		jQuery('.panel-collapse').toggleClass('thePanel');
+		/*if ($i % 2 != 0)
+		{
+			jQuery('.panel-collapse').addClass('thePanel');
+		}
+		else
+		{
+			jQuery('.panel-collapse').removeClass('thePanel');
+		}*/
+		jQuery('.panel-heading').toggleClass('isOpen');
+		jQuery('.panel-collapse').slideUp(300);
+		jQuery(".thePanel").slideToggle(800);
 	});
 });
