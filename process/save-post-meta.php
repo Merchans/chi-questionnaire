@@ -92,7 +92,8 @@ function question_id_meta_box($post){
     <div class="box-question">
         <label  for="question_id" ><?php _e( 'Choose a Question:', 'chi-questionnaire' ) ?></label>
 
-        <select name="question_id" id="question_id" placeholder="Pick a question...">
+        <select name="question_id" id="question_id" placeholder="<?php _e("Pick a question...", "chi-questionnaire") ?>">
+			<option value="<?php _e("Pick a question...", "chi-questionnaire") ?>" required="required"><?php _e("Pick a question...", "chi-questionnaire") ?></option>
             <?php
             foreach ( $questions['post'] as $question ) {
 
@@ -114,7 +115,8 @@ function question_id_meta_box($post){
     <div class="box-doctor">
         <label for="doctor_id"><?php _e( 'Choose a Doctor:', 'chi-questionnaire' ) ?></label>
 
-        <select name="doctor_id" id="doctor_id"  placeholder="Pick a doctor...">
+        <select name="doctor_id" id="doctor_id"  placeholder="<?php _e("Pick a doctor...", "chi-questionnaire") ?>">
+			<option value="<?php _e("Pick a doctor...", "chi-questionnaire") ?>" required="required"><?php _e("Pick a doctor...", "chi-questionnaire") ?></option>
             <?php
             foreach ( $doctors['post'] as $doctor ) {
 

@@ -56,12 +56,14 @@ function chi_add_post_answer_columns_data( $column, $post_id )
 	if ($column == "id_name_of_doctor")
 	{
 		$doctor_id = get_post_meta($post_id, "doctor_id" ,true);
-        echo "[".$doctor_id."]"  . " − " . get_post($doctor_id)->post_title;
+        if ($doctor_id != "Pick a doctor...")
+        	echo "[".$doctor_id."]"  . " − " . get_post($doctor_id)->post_title;
 	}
 
     if ($column == "id_name_of_question")
     {
         $question_id = get_post_meta($post_id, "question_id" ,true);
-        echo "[".$question_id."]"  . " − " . get_post($question_id)->post_title;
+        if ($question_id != "Pick a question...")
+        	echo "[".$question_id."]"  . " − " . get_post($question_id)->post_title;
     }
 }
