@@ -101,9 +101,7 @@ function chi_add_question( $atts )
                     ?>
                     <li class="timeline-item">
                         <div class="timeline-badge">
-							<a href="#collapseTwo" class="#">
-                                <?php echo get_the_post_thumbnail($answer_conten["doctor_id"], 'thumbnail'); ?>
-							</a>
+							<?php echo get_the_post_thumbnail($answer_conten["doctor_id"], 'thumbnail'); ?>
 						</div>
                         <div class="timeline-panel">
                             <div class="panel">

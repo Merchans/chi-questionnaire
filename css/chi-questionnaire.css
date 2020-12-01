@@ -8,7 +8,20 @@ span.questionId {
 	text-align: center;
 }
 
+th#shortcode
+{
+	width: 15%;
+	text-align: center;
+}
+
+td.shortcode.column-shortcod,
+th.manage-column.column-shortcode,
+th#shortcode,
 th.manage-column.column-ID,
 th#ID {
+	text-align: center;
+}
+
+td.shortcode.column-shortcode {
 	text-align: center;
 }
