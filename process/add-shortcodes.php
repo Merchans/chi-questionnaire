@@ -87,37 +87,66 @@ function chi_add_question( $atts )
     wp_reset_postdata();
     ?>
     <section id="home" class="contents">
+		<div class="accordion">
+			<h3>Section 1</h3>
+
+			<div>
+				Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+			</div>
+
+			<h3>Section 2</h3>
+
+			<div>
+				Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna.
+			</div></div>
+		<div class="accordion">
+			<h3>Section 1</h3>
+
+			<div>
+				Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+			</div>
+
+			<h3>Section 2</h3>
+
+			<div>
+				Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna.
+			</div></div>
         <div class="container">
             <?php echo get_post($atts['id'])->post_content?>
-            <a href="#" class="chi-more-videos-btn btnImgClick d-block">
-                <span class="chi-more-videos-btn__text"><?php _e('All answers','chi-questionnaire') ?> </span>
+            <a href="#" class="chi-btn-all-answers btnImgClick">
+				<i class="chi-arrow chi-down"></i>&nbsp;<?php _e('See other answers','chi-questionnaire') ?>
             </a>
             <ul class="timeline panel-group"  role="tablist" aria-multiselectable="true">
-                <li class="timeline-line"></li>
                 <?php
                 foreach ($answers_conten as $answer_conten)
                 {
 
                     ?>
                     <li class="timeline-item">
-                        <div class="timeline-badge">
-							<?php echo get_the_post_thumbnail($answer_conten["doctor_id"], 'thumbnail'); ?>
-						</div>
+                        <!--<div class="timeline-badge"></div> -->
                         <div class="timeline-panel">
                             <div class="panel">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title">
+                                    <div class="panel-title">
+										<span class="timeline-badge">
+                                        <?php  if ( has_post_thumbnail( $answer_conten["doctor_id"] ) ): ?>
+                                            <?php echo get_the_post_thumbnail($answer_conten["doctor_id"], 'thumbnail'); ?>
+                                        <?php endif; ?>
+                                        <?php  if ( !has_post_thumbnail( $answer_conten["doctor_id"] ) ): ?>
+											<img src="<?php echo PLUGIN_HOME . "img/user.png" ?>" alt="doctor">
+                                        <?php endif; ?>
+										</span>
                                         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                            <div class="timeline-heading"><?php echo get_post($answer_conten["doctor_id"])->post_title?></div>
+                                            <span class="timeline-heading"><?php echo get_post($answer_conten["doctor_id"])->post_title?></span>
                                             <span class="expand-icon-wrap" aria-expanded="false" aria-controls="collapseTwo"></span>
                                         </a>
-                                    </h4>
+                                    </div>
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel">
                                     <div class="panel-body">
                                         <div class="timeline-content">
-                                            <div>
-                                                <strong><?php echo get_post($answer_conten["doctor_id"])->post_content?></strong>
+                                            <div class="chi-work-station">
+                                                <?php echo get_post($answer_conten["doctor_id"])->post_content?>
                                             </div>
                                             <?php echo $answer_conten["text"] ?>
                                         </div>

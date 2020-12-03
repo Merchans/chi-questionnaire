@@ -25,3 +25,9 @@ jQuery(document).ready(function() {
 		jQuery(".thePanel").slideToggle(800);
 	});
 });
+
+jQuery(document).ready(function($) {
+	$( ".accordion" ).accordion({
+		collapsible: true
+	});
+});

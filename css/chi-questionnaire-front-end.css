@@ -73,3 +73,16 @@
 	left: -4.35em;
 	z-index: 0;
 }
+
+.chi-btn-all-answers
+{
+	font-family: "Source Sans Pro", sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 20px;
+	text-align: center;
+	color: #E30613!important;
+}
+
+/*---------------------------------------------------------*/
