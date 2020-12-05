@@ -3,7 +3,7 @@
 Plugin Name: CHI Questionnaire
 Plugin URI: https://kongres-online.cz/
 Description: Questionnaire for doctors.
-Version: 0.1
+Version: 1.0
 Author: Richard Markovič
 Text Domain: chi-questionnaire
 Domain Path: /languages/
@@ -14,7 +14,7 @@ if	( ! defined('ABSPATH') ) {
 }
 
 // Setup
-define('RM_DEV_MODE', true);
+define('RM_DEV_MODE', false);
 define('PLUGIN_HOME', plugin_dir_url(__FILE__) );
 define('PLUGIN_HOME_URI', dirname( plugin_basename( __FILE__ ) ) );
 

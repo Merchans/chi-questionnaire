@@ -33,7 +33,7 @@ function chi_enqueue_front_end()
     wp_enqueue_style( "chi-questionnaire_front-end_css" );
     wp_enqueue_style( "chi-acordeon-efect" );
 
-    wp_register_script( "chi-acordeon-efect", PLUGIN_HOME. "/js/chi-acordeon-efect.js", array('jquery', 'jquery-ui-accordion'), $version, true  );
+    wp_register_script( "chi-acordeon-efect", PLUGIN_HOME. "/js/chi-acordeon-efect.js", array('jquery'), $version, true  );
 
     wp_enqueue_script( "chi-acordeon-efect" );
 }
