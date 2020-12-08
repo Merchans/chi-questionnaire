@@ -14,7 +14,7 @@ if	( ! defined('ABSPATH') ) {
 }
 
 // Setup
-define('RM_DEV_MODE', false);
+define('RM_DEV_MODE', true);
 define('PLUGIN_HOME', plugin_dir_url(__FILE__) );
 define('PLUGIN_HOME_URI', dirname( plugin_basename( __FILE__ ) ) );
 
@@ -38,14 +38,17 @@ add_action( 'wp_enqueue_scripts', 'chi_enqueue_front_end');
 add_action('save_post_chi_answer', 'chi_answer_save_metabox', 3, 10 );
 add_action( 'add_meta_boxes', 'chi_answer_meta_box_for_question' );
 add_action('manage_chi_question_posts_custom_column', 'chi_add_post_questions_columns_data', 10, 2);
+add_action('manage_chi_inzerce_posts_custom_column', 'chi_add_post_inzerce_columns_data', 11, 2);
 add_action('manage_chi_answer_posts_custom_column', 'chi_add_post_answer_columns_data', 10, 2);
 
 // Filters
 add_filter('manage_chi_question_posts_columns', 'chi_add_post_questions_columns');
+add_filter('manage_chi_inzerce_posts_columns', 'chi_add_post_inzerce_columns');
 add_filter('manage_chi_answer_posts_columns', 'chi_add_post_answer_columns');
 add_filter('manage_edit-chi_question_sortable_columns', 'chi_add_sortable_post_question_column');
 
 
 // Shortcodes
 add_shortcode('question','chi_add_question');
+add_shortcode('advertising','chi_add_advertising');
 

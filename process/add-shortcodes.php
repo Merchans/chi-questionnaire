@@ -91,3 +91,48 @@ function chi_add_question( $atts )
     return ob_get_clean();
 }
 
+function chi_add_advertising( $atts ) {
+    $atts = shortcode_atts(array(
+        'id' => '',
+    ), $atts );
+    if ( $atts['id'] == '' || empty($atts) )
+    {ob_start();?>
+		<div class="alert alert-info">
+            <?php _e('<strong>ID</strong> is empty. Set the ID [advertising id="x"].','chi-questionnaire') ?>
+			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+		</div>
+        <?php
+        return ob_get_clean();
+    }
+
+    if ( !check_post_type( $atts['id'], "chi_inzerce" ) )
+    { ob_start(); ?>
+		<div class="alert alert-info">
+			<strong><?php _e('Enter the ID from the advertising section.','chi-questionnaire') ?></strong>
+			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+		</div>
+        <?php
+        return ob_get_clean();
+    }
+    ob_start();
+    $advertising = get_post($atts['id']);
+    $advertising_content = $advertising->post_content;
+    ?>
+	<div class="chi-bg-white">
+		<div class="d-flex h-20 mt-4">
+			<div class="chi-tag text-uppercase mr-auto p-2">
+				<span class="chi-tag_link">
+					<?php _e('advertising message','chi-questionnaire') ?>
+				</span>
+
+			</div>
+		</div>
+		<hr class="divider mt-0" />
+		<div class="chi-advertise">
+			<?php echo $advertising_content; ?>
+		</div>
+		<hr class="divider mt-0" />
+	</div>
+    <?php return ob_get_clean();
+
+}

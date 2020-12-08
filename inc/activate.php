@@ -21,4 +21,16 @@ if( ! function_exists( 'is_question' ) )
         return $mixed;
     }
 }
+if( ! function_exists( 'check_post_type' ) ) {
+    function check_post_type($id, $type)
+    {
+        $post_type = get_post_type($id);
+        if ($post_type == $type) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+}
+
 
